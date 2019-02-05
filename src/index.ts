@@ -1,8 +1,8 @@
 import cookieParser from "cookie-parser";
 import express from "express";
-import createError  from "http-errors";
-import logger   from   "morgan";
-import path from   "path";
+import createError from "http-errors";
+import logger from "morgan";
+import path from "path";
 
 const app = express();
 const port = 3080; // default port to listen
@@ -18,15 +18,16 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "../public")));
 
 // define a route handler for the default home page
-app.get( "/", ( req, res ) => {
-    // render the index template
-	res.render( "index", { 
-		title: "Typescript in Express",
-		page: "1. Rework architecture; 2. Implement MongoDB " } );
-} );
+app.get("/", (req, res) => {
+  // render the index template
+  res.render("index", {
+    title: "Typescript in Express",
+    page: "1. Rework architecture; 2. Implement MongoDB "
+  });
+});
 
 // start the express server
-app.listen( port, () => {
-    // tslint:disable-next-line:no-console
-    console.log( `server started at http://localhost:${ port }` );
-} );
+app.listen(port, () => {
+  // tslint:disable-next-line:no-console
+  console.log(`server started at http://localhost:${port}`);
+});
